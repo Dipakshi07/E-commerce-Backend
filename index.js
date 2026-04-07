@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
-  origin: "https://shop-ease-front-8tkg.vercel.app/"
+  origin: "https://shop-ease-front-8tkg.vercel.app"
 }));
 
 // ✅ DEBUG ROOT ROUTE
