@@ -257,3 +257,21 @@ export const getDeals = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+// ✅ GET PRODUCTS BY CATEGORY
+export const getProductsByCategory = async (req, res) => {
+  try {
+    const { category } = req.query;
+
+    let filter = {};
+
+    if (category) {
+      filter.category = category; // dynamic filtering
+    }
+
+    const products = await Product.find(filter);
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

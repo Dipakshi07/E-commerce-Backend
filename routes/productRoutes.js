@@ -3,7 +3,8 @@ import {
   getProducts,
   getProductById,
   getDeals,
-  seedProducts
+  seedProducts,
+  getProductsByCategory
 } from "../controllers/productController.js";
 
 
@@ -14,5 +15,6 @@ router.get("/seed", seedProducts);
 router.get("/deals", getDeals);
 router.get("/", getProducts);
 router.get("/:id", getProductById);
+router.get("/products", getProductsByCategory);
 
 export default router; // ✅ IMPORTANT
