@@ -8,7 +8,7 @@ import {
 const router = express.Router();
 
 // ✅ ADD TO CART (REST style)
-router.post("/", addToCart);
+router.post("/add", addToCart);
 
 // ✅ GET CART BY USER
 router.get("/:userId", getCart);
