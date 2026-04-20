@@ -68,17 +68,12 @@ export const getCart = async (req, res) => {
 // ✅ REMOVE FROM CART (SECURE)
 export const removeFromCart = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { cartItemId } = req.params;
 
-    if (!id) {
-      return res.status(400).json({ message: "Cart item id required" });
-    }
+    await Cart.findByIdAndDelete(cartItemId);
 
-    await Cart.findByIdAndDelete(id);
-
-    res.json({ message: "Removed successfully" });
-
-  } catch (error) {
-    res.status(500).json({ message: "Server error" });
+    res.json({ message: "Item removed successfully" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 };
