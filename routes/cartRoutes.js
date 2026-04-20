@@ -7,8 +7,13 @@ import {
 
 const router = express.Router();
 
-router.post("/add", addToCart);
+// ✅ ADD TO CART (REST style)
+router.post("/", addToCart);
+
+// ✅ GET CART BY USER
 router.get("/:userId", getCart);
+
+// ✅ REMOVE ITEM
 router.delete("/:id", removeFromCart);
 
-export default router; // ✅ IMPORTANT
+export default router;

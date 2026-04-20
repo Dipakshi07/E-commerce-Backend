@@ -4,17 +4,24 @@ import {
   getProductById,
   getDeals,
   seedProducts,
-  getProductsByCategory
+  getProductsByCategory,
 } from "../controllers/productController.js";
-
-
 
 const router = express.Router();
 
+// ✅ SEED
 router.get("/seed", seedProducts);
-router.get("/deals", getDeals);
-router.get("/", getProducts);
-router.get("/:id", getProductById);
-router.get("/products", getProductsByCategory);
 
-export default router; // ✅ IMPORTANT
+// ✅ DEALS
+router.get("/deals", getDeals);
+
+// ✅ CATEGORY (🔥 MUST BE BEFORE :id)
+router.get("/category/:category", getProductsByCategory);
+
+// ✅ ALL PRODUCTS
+router.get("/", getProducts);
+
+// ✅ SINGLE PRODUCT (🔥 ALWAYS LAST)
+router.get("/:id", getProductById);
+
+export default router;

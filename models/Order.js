@@ -2,15 +2,18 @@ import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
   {
+    // ✅ FIX: use String instead of ObjectId
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
       required: true
     },
 
     products: [
       {
-        productId: String,
+        productId: {
+          type: String,
+          required: true
+        },
         name: String,
         price: Number,
         image: String,
